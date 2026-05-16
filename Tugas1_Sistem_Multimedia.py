@@ -96,7 +96,7 @@ def task4_generate_compression_report(original_path, compressed_paths, report_pa
         )
         
     report_lines.extend([
-        "\n##Kesimpulan\n",
+        "\n# Kesimpulan\n",
         "1. **Quality Factor Rendah (Q = 10):** Menghasilkan reduksi data tertinggi (paling hemat memori), tetapi memicu degradasi/penurunan kualitas visual akibat hilangnya frekuensi tinggi dalam blok kuantisasi DCT (*blocking artifacts*).",
         "2. **Quality Factor Menengah (Q = 50):** Merupakan *sweet spot* (titik tengah terbaik) di mana ukuran file berkurang drastis namun mata manusia masih mendeteksi kualitas gambar dengan sangat baik.",
         "3. **Quality Factor Tinggi (Q = 90):** Mengutamakan retensi ketajaman piksel tinggi yang mirip gambar uncompressed/raw, berkonsekuensi pada ukuran penyimpanan yang tetap besar."
