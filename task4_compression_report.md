@@ -10,7 +10,7 @@
 | JPEG (Quality = 50) | 676,304 | 660.45 | 2.50:1 | 60.02% | `./task3_jpeg_q50.jpg` |
 | JPEG (Quality = 90) | 1,424,161 | 1390.78 | 1.19:1 | 15.82% | `./task3_jpeg_q90.jpg` |
 
-##Kesimpulan
+# Kesimpulan
 
 1. **Quality Factor Rendah (Q = 10):** Menghasilkan reduksi data tertinggi (paling hemat memori), tetapi memicu degradasi/penurunan kualitas visual akibat hilangnya frekuensi tinggi dalam blok kuantisasi DCT (*blocking artifacts*).
 2. **Quality Factor Menengah (Q = 50):** Merupakan *sweet spot* (titik tengah terbaik) di mana ukuran file berkurang drastis namun mata manusia masih mendeteksi kualitas gambar dengan sangat baik.
