@@ -73,21 +73,19 @@ def task3_jpeg_compression(image_path, qualities=[10, 50, 90], output_dir="."):
 
 def task4_generate_compression_report(original_path, compressed_paths, report_path="task4_compression_report.md"):
     """
-    TASK 4: Membuat markdown (md) report untuk menghitung efisiensi persentase ukuran byte
-    pada storage akibat kompresi tersebut dibandingkan raw size matematis.
-    yang dihitung adalah ukuran berkas, Rasio Kompresi (CR), dan Persentase Reduksi Data.
+    TASK 4: kalkulasi efisiensi persentase ukuran byte pada storage akibat kompresi dibandingakan rAW size matematis & pembuatan markdown report.
     """
     orig_size = os.path.getsize(original_path)
     
     report_lines = [
-        "# Laporan Analisis Efisiensi Kompresi Citra JPEG",
-        f"**Berkas Gambar Sumber:** `{original_path}`",
-        f"**Ukuran Berkas Sumber:** {orig_size:,} Bytes ({orig_size / 1024:.2f} KB)\\n",
+        "# Laporan Analisis Efisiensi Kompresi Citra JPEG\n",
+        f"**Berkas Gambar Sumber:** `{original_path}`  ",
+        f"**Ukuran Berkas Sumber:** {orig_size:,} Bytes ({orig_size / 1024:.2f} KB)\n",
         "| Komponen / Kualitas (Q) | Ukuran File (Bytes) | Ukuran File (KB) | Rasio Kompresi | Reduksi Ukuran (%) | Nama Berkas |",
         "|-------------------------|---------------------|------------------|----------------|--------------------|-------------|",
         f"| Asli (Original Baseline) | {orig_size:,} | {orig_size/1024:.2f} | 1.00:1 | 0.00% | `{original_path}` |"
     ]
-    #menampilkan row perthitungannya
+    
     for q, path in sorted(compressed_paths.items()):
         comp_size = os.path.getsize(path)
         compression_ratio = orig_size / comp_size
@@ -98,14 +96,15 @@ def task4_generate_compression_report(original_path, compressed_paths, report_pa
         )
         
     report_lines.extend([
-        "\\n## Kesimpulan Analisis Sistem Citra Digital",
+        "\n## Kesimpulan Analisis Sistem Citra Digital\n",
         "1. **Quality Factor Rendah (Q = 10):** Menghasilkan reduksi data tertinggi (paling hemat memori), tetapi memicu degradasi visual akibat hilangnya frekuensi tinggi dalam blok kuantisasi DCT (*blocking artifacts*).",
         "2. **Quality Factor Menengah (Q = 50):** Merupakan *sweet spot* (titik tengah terbaik) di mana ukuran file berkurang drastis namun mata manusia masih mendeteksi kualitas gambar dengan sangat baik.",
         "3. **Quality Factor Tinggi (Q = 90):** Mengutamakan retensi ketajaman piksel tinggi yang mirip citra uncompressed, berkonsekuensi pada ukuran penyimpanan yang tetap besar."
     ])
     
+    # Menggunakan kode \n asli untuk menulis baris baru ke file
     with open(report_path, "w", encoding="utf-8") as f:
-        f.write("\\n".join(report_lines))
+        f.write("\n".join(report_lines))
         
     print(f"[Task 4] Sukses: Laporan formal dalam format Markdown tersimpan di -> {report_path}")
     return report_path
